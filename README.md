@@ -66,6 +66,7 @@ HartwellApache_CL
 | summarize RequestCount = count() by SourceIP
 | order by RequestCount desc
 ```
+<img width="647" height="320" alt="image" src="https://github.com/user-attachments/assets/bad9eacb-68c5-422d-9058-3ca6e6312889" />
 
 **Finding:** `192.168.1.100` — suspected attacker IP.
 
