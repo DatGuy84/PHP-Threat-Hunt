@@ -67,6 +67,9 @@ HartwellApache_CL
 | order by RequestCount desc
 ```
 
+
+<img width="657" height="322" alt="image" src="https://github.com/user-attachments/assets/5b1801fc-7e7a-494a-865b-d234f375fc59" />
+
 **Flag:** `192.168.1.100` — suspected attacker IP.
 
 ### 2. Identify the Reconnaissance Tool
@@ -83,6 +86,8 @@ HartwellApache_CL
 | summarize Requests = count() by UserAgent
 | order by Requests desc
 ```
+
+<img width="861" height="593" alt="image" src="https://github.com/user-attachments/assets/28f00610-0da3-4f8b-aacf-0d86f36f68e4" />
 
 **Flag:** `Nmap`.
 
@@ -101,6 +106,8 @@ HartwellApacheError_CL
 | distinct Message
 ```
 
+<img width="855" height="330" alt="image" src="https://github.com/user-attachments/assets/fb735a93-8690-4da9-bdc1-050a7722aff8" />
+
 I then reviewed enriched HTTP requests carrying PHP session information:
 
 ```kql
@@ -113,6 +120,8 @@ HartwellHTTPEnriched_CL
 | where request_headers contains "PHP"
 | project OriginalTime, id_orig_h, method, uri, request_headers
 ```
+
+<img width="882" height="601" alt="image" src="https://github.com/user-attachments/assets/3418dbae-4ca0-478b-9158-59039693197d" />
 
 The combination of `PHPSESSID` cookies and multipart submissions suggested abuse of PHP's session upload-progress functionality. This is an investigative inference from the warnings and request characteristics, not something established by the warnings alone.
 
@@ -151,7 +160,9 @@ HartwellApache_CL
 | project OriginalTime, SourceIP, URI
 ```
 
-**Flag:** `/var/www/html/health-check.php` (web shell filename: `health-check.php`).
+<img width="877" height="442" alt="image" src="https://github.com/user-attachments/assets/9a2e51dc-e41e-4078-9719-a267ac13540d" />
+
+**Flag:** `health-check.php`.
 
 ### 6. Establish the Execution Account and Parent Process
 
