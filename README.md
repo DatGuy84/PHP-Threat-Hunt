@@ -457,19 +457,6 @@ These are **recommendations**, not actions documented as completed in the hunt.
 - **Avoid overclaiming scope.** Network discovery is not the same as lateral movement, and a lack of observed movement is not proof of absence.
 
 ---
-
-## Evidence and Screenshots
-
-The original 15-page PDF includes KQL queries, investigation notes, and screenshots of selected results. To display screenshots inline on GitHub, upload the screenshots to the repository and add Markdown references like:
-
-```markdown
-![Suspicious source IP request counts](screenshots/01-source-ip.png)
-```
-
-This README intentionally does not invent GitHub image URLs or claim response actions were performed.
-
----
-
 **Report:** PHP2Shell — The Hartwell Breach  
 **Scope:** 18 documented findings across reconnaissance, exploitation, execution, discovery, credential access, defense evasion, persistence, and impact assessment  
 **Assessment:** Compromise of the WordPress server with command execution and sensitive-data exposure; no lateral movement demonstrated in the documented evidence.
