@@ -187,6 +187,8 @@ HartwellSysmon_CL
           └── /usr/bin/whoami
 ```
 
+<img width="887" height="227" alt="image" src="https://github.com/user-attachments/assets/380eb6e4-523d-4abb-bbaf-89834e4ca261" />
+
 **Flag:** `www-data`.
 
 ### 7. Investigate the Obfuscated Command Header
@@ -260,6 +262,8 @@ HartwellSysmon_CL
 | order by OriginalTime asc
 ```
 
+<img width="875" height="333" alt="image" src="https://github.com/user-attachments/assets/053d76ac-1b8b-4d95-99ed-ae2e845daf76" />
+
 **Flag:** `sysmon`, `auditd`, `SplunkForwarder`.
 
 ### 11. Locate WordPress Database Credentials
@@ -278,6 +282,8 @@ HartwellSysmon_CL
 | project User, RuleName, CommandLine
 ```
 
+<img width="891" height="292" alt="image" src="https://github.com/user-attachments/assets/76245878-dc45-4d7b-bf3d-21ee43e07b8e" />
+
 **Flag:** `/var/www/html/wp-config.php` — WordPress configuration file containing database connection settings.
 
 ### 12. Identify the Database Table and Password-Hash Column
@@ -293,6 +299,8 @@ HartwellSysmon_CL
 | where CommandLine contains "SELECT"
 | project User, RuleName, CommandLine
 ```
+
+<img width="915" height="303" alt="image" src="https://github.com/user-attachments/assets/c929ffdc-7780-4c5f-adc7-2e4decdb06e6" />
 
 Example query observed in the command lines:
 
@@ -324,6 +332,8 @@ systemctl stop auditd
 systemctl stop SplunkForwarder
 ```
 
+<img width="881" height="450" alt="image" src="https://github.com/user-attachments/assets/ed23ea8a-bd65-4ee6-b4e9-7e7980e184f9" />
+
 **Flag 13:** `sysmon, auditd, SplunkForwarder` — the three services targeted with `systemctl stop`.
 
 ### 14. Determine Whether Monitoring Evasion Succeeded
@@ -351,6 +361,8 @@ HartwellSysmon_CL
     or CommandLine contains "systemd"
 | project User, RuleName, CommandLine
 ```
+
+<img width="593" height="193" alt="image" src="https://github.com/user-attachments/assets/f9fd19cc-87d3-4ec6-8ab1-1df9ad30b2ea" />
 
 Suspicious scheduled command:
 
